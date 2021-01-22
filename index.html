@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/global.css">
     <meta name="description"
         content="Controle suas finanças, realizando o acompanhamento e controle de gastos das suas finanças pessoais.">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -31,31 +32,44 @@
         -->
     </header>
     <main class="container">
-        <section id="balance">
-            <h2>Balanço</h2>
+        <section id="balance" >
+            <h2 class="sr-only">Balanço</h2>
 
             <div class="card">
-                <h3>Entradas</h3>
+                <h3>
+                    <span>Entradas</span>
+                    <i class="bi-arrow-up-square" id="up" alt="imagem de entrada"></i>
+                </h3>
                 <p>R$ 5.000,00</p>
             </div>
             <div class="card">
-                <h3>Saídas</h3>
+                <h3>
+                    <span>Saídas</span>
+                    <i class="bi-arrow-down-square" id="down" alt="imagem de saídas"></i>
+                </h3>
                 <p>R$ 2.000,00</p>
             </div>
             <div class="card result">
-                <h3>Total</h3>
+                <h3>
+                    <span>Total</span>
+                    <i class="bi-arrow-left-right" alt="imagem de saídas"></i>
+                </h3>
                 <p>R$ 3.000,00</p>
             </div>
         </section>
 
         <section id="transactions">
-            <h2>Transações</h2>
+            <h2 class="sr-only">Transações</h2>
+
+            <a href="#" class="button new" onclick="Modal.open();"><i class="bi-plus" alt="imagem de saídas"></i> Nova Trasação</a>
+
             <table id="data-table">
                 <thead>
                     <tr>
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,38 +77,86 @@
                         <td class="description">Criação de aplicação</td>
                         <td class="gain">R$ 5000,00</td>
                         <td class="date">14/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
                     </tr>
                     <tr>
                         <td class="description">Energia Elétrica</td>
                         <td class="spent">- R$ 210,52</td>
                         <td class="date">16/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
                     </tr>
                     <tr>
                         <td class="description">Água</td>
                         <td class="spent">- R$ 120,12</td>
                         <td class="date">15/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
                     </tr>
                     <tr>
                         <td class="description">Telefone</td>
                         <td class="spent">- R$ 230,92</td>
                         <td class="date">17/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
                     </tr>
                     <tr>
                         <td class="description">Lanche</td>
                         <td class="spent">- R$ 55,99</td>
                         <td class="date">15/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="description">Viagem dos Sonhos</td>
+                        <td class="spent">-1.382,45</td>
+                        <td class="date">19/01/2021</td>
+                        <td><i class="bi-dash-square-fill" alt="imagem de saídas"></i></td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
     </main>
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <div class="" id="form">
+                <h2>Nova Transação</h2>
+                <form action="">
+                    <div class="input-group">
+                        <label for="description" class="sr-only">Descrição</label>
+                        <input type="text" name="description" id="description" placeholder="Descrição">
+                    </div>
+                    <div class="input-group">
+                        <label for="amount" class="sr-only">Valor</label>
+                        <input type="number" step="0.01" name="amount" id="amount" placeholder="0.00">
+                        <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="date" class="sr-only"></label>
+                        <input type="date" name="date" id="date" placeholder="Data">
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" class="button cancel" onclick="Modal.close()">Cancelar</a>
+                        <button><span>Salvar</span></button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>     
     <footer>
         <h1>
             <strong>Money</strong> Flow
         </h1>
         <p>desenvolvido por Jônatas da Silva</p>
     </footer>
+    <script src="js/script.js">
+        /*const Modal = {
+            open() {
+                document.querySelector('.modal-overlay').classList.add('active');
+            },
+            close() {
+                document.querySelector('.modal-overlay').classList.remove('active');    
+            }
+        }*/
+    </script>
 </body>
 
 </html>
