@@ -58,13 +58,14 @@ html[data-theme='dark'] {
     width: 100%;
     height: 100%;
     --top: #202024;
-    --color-red: #fa5a5a;
+    --color-red: #fc5c5c;
     --text-white: #eeeeee;
     --spotlight: #29292e;
     --background: #121214;
-    --color-green: #2ce07d;
+    --color-green: #82e9a5;
     --color-orange: #f09a39;
     --color-primary: #755fb4;
+    --color-primary-dark: #aea1d3; 
     --color-primary-hover: #9466ff;
     --logo-distaque-color: #c08af1;
     --logo-enfoque-color: #48ecca;
@@ -95,7 +96,7 @@ header {
 #logo strong {
     font-size: 60px;
     font-weight: 900;
-    color: var(--color-green);
+    color: var(--logo-enfoque-color);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -103,52 +104,9 @@ h2 {
     font-weight: 700;
     margin-top: 3.2rem;
     margin-bottom: 0.8rem;
-    color: var(--color-primary-hover);
+    color: var(--color-primary-dark);
     font-family: 'Josefin Sans', sans-serif;
 }
-/*
-header nav {
-    width: 100%;
-    height: 10%;
-    margin: auto;
-    display: flex;
-    position: fixed;
-    text-align: center;
-    align-items: center;
-    padding: 2rem 0 12rem;
-    align-content: space-around;
-    justify-content: space-around;
-    background: var(--color-green);
-}
-
-header nav ul {
-    width: 55%;
-    display: flex;
-    list-style: none;
-    color: white;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 15px;
-    justify-content: space-around;
-    background-color: transparent;
-}
-
-header nav ul li {
-    opacity: 0.7;
-    font-size: 20px;
-    letter-spacing: 0.8;
-    transition: all 0.3s;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-header nav ul li:hover {
-    opacity: 1;
-    cursor: pointer;
-    color: var(--color-green);
-}
-*/
 
 .sr-only {
     padding: 0;
@@ -205,11 +163,11 @@ header nav ul li:hover {
 
 .card h3 i {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 
 .card h3 #up {
-    color: var(--color-green);
+    color: var(--logo-enfoque-color);
 }
 
 .card h3 #down {
@@ -225,7 +183,7 @@ header nav ul li:hover {
 }
 
 .card.result {
-    background: var(--color-green);
+    background: var(--logo-enfoque-color);
 }
 
 .card.result h3 span {
@@ -249,25 +207,31 @@ header nav ul li:hover {
     overflow-x: auto;
 }
 
-.button.new{
-    padding: .3rem .5rem;
-    font-size: 12px;
+.button.new {
+    font-size: 1.2em;
     font-weight: 700;
     align-items: center;
+    padding: .6rem 1rem;
     justify-content: center;
+    transition: all 0.5s ease-in-out;
     color: var(--logo-enfoque-color);
-    border-bottom: 1px solid var(--logo-enfoque-color);
     font-family: 'Josefin Sans', sans-serif;
+    border-bottom: 1px solid var(--logo-enfoque-color);
+}
+
+.button.new:hover {
+    color: var(--spotlight);
+    background: var(--logo-enfoque-color);
 }
 
 a {
-    color: #49AA26;
+    color: var(--logo-enfoque-color);
     text-decoration: none;
     transition: all 0.3s;
 }
 
 a:hover {
-    color: #3dd705;
+    color: var(--logo-enfoque-color);
 }
 
 .button.new {
@@ -311,7 +275,7 @@ input[type="number"] {
 
 button:hover {
     opacity: 1;
-    background: var(--color-green);
+    background: var(--logo-enfoque-color);
 }
 
 button:hover span {
@@ -357,12 +321,12 @@ table td {
 }
 
 td.description {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
 }
 
 table td.gain {
     font-weight: 700;
-    color: var(--color-green);
+    color: var(--logo-enfoque-color);
 }
 
 table td.spent {
@@ -384,7 +348,7 @@ table th {
     font-weight: 600;
     padding: 1rem 2rem;
     background: var(--top);
-    color: var(--logo-distaque-color);
+    color: var(--color-primary-dark);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -398,18 +362,17 @@ table thead tr th:last-child, table tbody tr td:last-child {
 
 table tbody tr td:first-child {
     font-weight: 700;
-    color: var(--logo-distaque-color);
+    color: var(--color-primary-dark);
     font-family: 'Josefin Sans', sans-serif;
 }
 
 table tbody tr td i {
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 2rem;
     color: var(--color-red);
 }
 
 .date {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 12px;
 }
 
@@ -468,7 +431,7 @@ table tbody tr td i {
     font-weight: 600;
     border-radius: 0.3rem;
     background: var(--spotlight);
-    color: var(--logo-distaque-color);
+    color: var(--color-primary-dark);
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -520,7 +483,7 @@ footer h1 strong{
     font-size: 25px;
     font-weight: 900;
     padding-right: 5px;
-    color: var(--color-green);
+    color: var(--logo-enfoque-color);
     font-family: 'Josefin Sans', sans-serif;
 }
 
