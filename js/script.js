@@ -100,7 +100,7 @@ const elementoHTML = {
         const html = `<td class="description">${transaction.description}</td>
         <td class="${CSSClass}">${amount}</td>
         <td class="date">${transaction.date}</td>
-        <td><i class="bi-node-minus-fill" alt="imagem de remoção de transação"></i></td>`;
+        <td><i class="bi-dash-circle" alt="imagem de remoção de transação"></i></td>`;
 
         return html;
     },
@@ -115,6 +115,15 @@ const elementoHTML = {
 };
 
 const Utils = {
+    formatAmount(value) {
+         value = Number(value) * 100;
+
+         return value;
+    },
+    formatDate(date) {
+        const splited = date.split("-");
+        return `${splited[2]}/${splited[1]}/${splited[0]}`;
+    },
     formatCurrency(value) {
         const signal = Number(value) < 0 ? "-" : "";
 
@@ -127,6 +136,8 @@ const Utils = {
             currency: "BRL"
         });
 
+        //value = value * 100;
+
         value = signal + value;
 
         return value;
@@ -134,12 +145,55 @@ const Utils = {
 }
 
 const form = {
-    formatData() {},
-    validateFields() {},
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    getValues() {
+        return {
+            description: form.description.value,
+            amount: form.amount.value,
+            date: form.date.value
+        };
+    },
+    formatValues() {
+        let { description, amount, date } = form.getValues();
+
+        amount = Utils.formatAmount(amount);
+
+        date = Utils.formatDate(date);
+
+        console.log(description);
+        console.log(amount);
+        console.log(date);
+
+        return {
+            description,
+            amount,
+            date
+        }
+    },
+    saveTransaction(transact) {
+        Transaction.add(transact);
+    },
+    clearFields() {
+        form.description.value = "";
+        form.amount.value = "";
+        form.date.value = "";
+    },
+    validateFields() {
+        const { description, amount, date } = form.getValues();
+
+        return description != "" || amount != "" || date != "" ? true : false;
+    },
     submit(event) {
         event.preventDefault();
-        form.validateFields();
-        form.formatData();
+        if (!form.validateFields()) return;
+        const transact = form.formatValues();
+        form.saveTransaction(transact);
+        form.clearFields();
+        Modal.close();
+        console.log(event);
     }
 };
 

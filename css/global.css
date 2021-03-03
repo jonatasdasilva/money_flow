@@ -79,9 +79,14 @@ body {
 
 /* Header style */
 header {
+    display: flex;
+    padding-left: 5em;
+    padding-right: 5em;
     text-align: center;
+    align-items: center;
     padding: 2rem 0 12rem;
     background-color: var(--top);
+    justify-content: space-between;
 }
 
 #logo {
@@ -99,6 +104,8 @@ header {
     color: var(--logo-enfoque-color);
     font-family: 'Josefin Sans', sans-serif;
 }
+
+#logo 
 
 h2 {
     font-weight: 700;
